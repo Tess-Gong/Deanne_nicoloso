@@ -10,7 +10,8 @@ import {
   Quote, 
   ExternalLink,
   Menu,
-  X
+  X,
+  Smile
 } from "lucide-react";
 
 const Navigation = () => {
@@ -208,7 +209,7 @@ export default function App() {
                   {/* The actual book cover provided by the user */}
                   <div className="aspect-[2/3] relative overflow-hidden group" style={{ width: '400px' }}>
                     <img 
-                      src="/src/assets/images/regenerated_image_1778153051805.jpg" 
+                      src="./images/regenerated_image_1778153051805.jpg" 
                       alt="Three Little Vikings Book Cover"
                       className="w-full h-full object-cover"
                     />
@@ -270,12 +271,12 @@ export default function App() {
               <div className="grid grid-cols-2 gap-4 relative">
                 <div className="pt-12">
                   <div className="p-1 gold-border rounded-t-full overflow-hidden">
-                    <img src="/src/assets/images/regenerated_image_1778153054563.jpg" alt="Courthouse Architecture" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
+                    <img src="./images/regenerated_image_1778153054563.jpg" alt="Courthouse Architecture" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
                   </div>
                 </div>
                 <div>
                   <div className="p-1 gold-border rounded-t-full overflow-hidden">
-                    <img src="/src/assets/images/regenerated_image_1778153053395.jpg" alt="Dannevirke Spirit" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
+                    <img src="./images/regenerated_image_1778153053395.jpg" alt="Dannevirke Spirit" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
                   </div>
                 </div>
               </div>
@@ -305,7 +306,7 @@ export default function App() {
               <div className="relative aspect-[4/5] max-w-md mx-auto">
                 <div className="absolute inset-4 border border-gold/30 rounded-t-full -z-10 translate-x-4 translate-y-4" />
                 <img 
-                  src="/src/assets/images/regenerated_image_1778153056165.jpg" 
+                  src="./images/regenerated_image_1778153056165.jpg" 
                   alt="DeAnne Nicoloso Author Portrait" 
                   className="w-full h-full object-cover rounded-t-full gold-border contrast-110 filter hue-rotate-10"
                 />
@@ -359,21 +360,26 @@ export default function App() {
           <SectionHeading subtitle="Foundations">Roots & Inspirations</SectionHeading>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {[
-              "/src/assets/images/regenerated_image_1778153058104.jpg",
-              "/src/assets/images/regenerated_image_1778153060082.jpg",
-              "/src/assets/images/regenerated_image_1778153061587.jpg",
-              "/src/assets/images/regenerated_image_1778153063003.jpg",
-              "/src/assets/images/regenerated_image_1778153064861.jpg",
-              "/src/assets/images/regenerated_image_1778153066512.jpg"
+              { src: "./images/regenerated_image_1778153058104.jpg", isChild: false },
+              { src: "./images/regenerated_image_1778153060082.jpg", isChild: true },
+              { src: "./images/regenerated_image_1778153061587.jpg", isChild: true },
+              { src: "./images/regenerated_image_1778153063003.jpg", isChild: true },
+              { src: "./images/regenerated_image_1778153064861.jpg", isChild: true },
+              { src: "./images/regenerated_image_1778153066512.jpg", isChild: true }
             ].map((img, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
-                className={`overflow-hidden gold-border aspect-square ${i % 3 === 0 ? 'rounded-t-3xl' : i % 3 === 2 ? 'rounded-b-3xl' : 'rounded-none'}`}
+                className={`overflow-hidden gold-border aspect-square relative ${i % 3 === 0 ? 'rounded-t-3xl' : i % 3 === 2 ? 'rounded-b-3xl' : 'rounded-none'}`}
               >
-                <img src={img} alt={`Family & Inspiration`} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                <img src={img.src} alt={`Inspiration ${i + 1}`} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                {img.isChild && (
+                  <div className="absolute inset-0 bg-[#FFE135] flex items-center justify-center">
+                    <Smile size={80} className="text-forest/80 drop-shadow-lg" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
