@@ -13,18 +13,18 @@ import {
   X
 } from "lucide-react";
 
-// Import images as assets for proper Vite path resolution
-import coverImg from "./assets/images/regenerated_image_1778153051805.jpg";
-import courthouseImg from "./assets/images/regenerated_image_1778153054563.jpg";
-import dannevirkeImg from "./assets/images/regenerated_image_1778153053395.jpg";
-import authorPortraitImg from "./assets/images/regenerated_image_1778153056165.jpg";
-import foundationImg1 from "./assets/images/regenerated_image_1778153058104.jpg";
-import foundationImg2 from "./assets/images/regenerated_image_1778153060082.jpg";
-import foundationImg3 from "./assets/images/regenerated_image_1778153061587.jpg";
-import foundationImg4 from "./assets/images/regenerated_image_1778153063003.jpg";
-import foundationImg5 from "./assets/images/regenerated_image_1778153064861.jpg";
-import foundationImg6 from "./assets/images/regenerated_image_1778153066512.jpg";
-import bannerImg from "./assets/images/regenerated_image_1778152881361.jpg";
+// Using root-relative paths for images (served from public/images)
+const coverImg = "/images/regenerated_image_1778153051805.jpg";
+const courthouseImg = "/images/regenerated_image_1778153054563.jpg";
+const dannevirkeImg = "/images/regenerated_image_1778153053395.jpg";
+const authorPortraitImg = "/images/regenerated_image_1778153056165.jpg";
+const foundationImg1 = "/images/regenerated_image_1778153058104.jpg";
+const foundationImg2 = "/images/regenerated_image_1778153060082.jpg";
+const foundationImg3 = "/images/regenerated_image_1778153061587.jpg";
+const foundationImg4 = "/images/regenerated_image_1778153063003.jpg";
+const foundationImg5 = "/images/regenerated_image_1778153064861.jpg";
+const foundationImg6 = "/images/regenerated_image_1778153066512.jpg";
+const bannerImg = "/images/regenerated_image_1778152881361.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -173,7 +173,7 @@ export default function App() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0 text-white flex items-center justify-center">
            <img 
-            src="https://images.unsplash.com/photo-1505833359644-48586f588bb2?auto=format&fit=crop&q=80&w=2000" 
+            src={bannerImg} 
             alt="Misty Fjord Landscape" 
             className="w-full h-full object-cover opacity-50 contrast-125"
           />
