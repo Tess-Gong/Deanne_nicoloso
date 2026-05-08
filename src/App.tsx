@@ -13,18 +13,17 @@ import {
   X
 } from "lucide-react";
 
-// Using root-relative paths for images (served from public/images)
-const coverImg = "/images/regenerated_image_1778153051805.jpg";
-const courthouseImg = "/images/regenerated_image_1778153054563.jpg";
-const dannevirkeImg = "/images/regenerated_image_1778153053395.jpg";
-const authorPortraitImg = "/images/regenerated_image_1778153056165.jpg";
-const foundationImg1 = "/images/regenerated_image_1778153058104.jpg";
-const foundationImg2 = "/images/regenerated_image_1778153060082.jpg";
-const foundationImg3 = "/images/regenerated_image_1778153061587.jpg";
-const foundationImg4 = "/images/regenerated_image_1778153063003.jpg";
-const foundationImg5 = "/images/regenerated_image_1778153064861.jpg";
-const foundationImg6 = "/images/regenerated_image_1778153066512.jpg";
-const bannerImg = "/images/regenerated_image_1778152881361.jpg";
+// Import images as assets for proper Vite path resolution
+import coverImg from "./assets/images/regenerated_image_1778201526040.png";
+import courthouseImg from "./assets/images/regenerated_image_1778153054563.jpg";
+import dannevirkeImg from "./assets/images/regenerated_image_1778153053395.jpg";
+import authorPortraitImg from "./assets/images/regenerated_image_1778153056165.jpg";
+import foundationImg1 from "./assets/images/regenerated_image_1778153058104.jpg";
+import foundationImg2 from "./assets/images/regenerated_image_1778153060082.jpg";
+import foundationImg3 from "./assets/images/regenerated_image_1778153061587.jpg";
+import foundationImg4 from "./assets/images/regenerated_image_1778153063003.jpg";
+import foundationImg5 from "./assets/images/regenerated_image_1778153064861.jpg";
+import foundationImg6 from "./assets/images/regenerated_image_1778153066512.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -170,16 +169,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0 text-white flex items-center justify-center">
-           <img 
-            src={bannerImg} 
-            alt="Misty Fjord Landscape" 
-            className="w-full h-full object-cover opacity-50 contrast-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-forest" />
-        </div>
-
         <div className="container mx-auto px-6 z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -216,16 +205,15 @@ export default function App() {
             transition={{ duration: 1, delay: 0.2 }}
             className="relative mx-auto max-w-sm lg:max-w-none"
           >
-              <div className="relative group p-4 border border-gold/10 rounded-lg">
-                <div className="rounded shadow-[0_0_80px_rgba(189,160,109,0.1)] gold-border bg-forest p-1">
+              <div className="relative group">
+                <div className="rounded">
                   {/* The actual book cover provided by the user */}
-                  <div className="aspect-[2/3] relative overflow-hidden group" style={{ width: '400px' }}>
+                  <div className="aspect-[2/3] relative overflow-hidden group" style={{ width: '450px' }}>
                     <img 
                       src={coverImg} 
                       alt="Three Little Vikings Book Cover"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
                   </div>
                 </div>
               </div>
@@ -366,36 +354,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Family / Inspiration Photos */}
-      <section className="py-24 bg-forest">
-        <div className="container mx-auto px-6">
-          <SectionHeading subtitle="Foundations">Roots & Inspirations</SectionHeading>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-            {[
-              foundationImg1,
-              foundationImg2,
-              foundationImg3,
-              foundationImg4,
-              foundationImg5,
-              foundationImg6
-            ].map((img, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className={`overflow-hidden gold-border aspect-square ${i % 3 === 0 ? 'rounded-t-3xl' : i % 3 === 2 ? 'rounded-b-3xl' : 'rounded-none'}`}
-              >
-                <img src={img} alt={`Family & Inspiration`} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
-              </motion.div>
-            ))}
-          </div>
-          <p className="mt-12 text-center text-xs font-light italic text-parchment/40 max-w-2xl mx-auto">
-            Supporting the journey across New Zealand, Australia, and Brazil.
-          </p>
-        </div>
-      </section>
-
       {/* The Story / Blurb Section */}
       <section id="synopsis" className="py-24 bg-forest border-t border-gold/10">
         <div className="container mx-auto px-6 max-w-4xl">
@@ -451,6 +409,36 @@ export default function App() {
           >
             {isExpanded ? 'Read Less' : 'Read Full Synopsis'} <ChevronRight size={14} className={isExpanded ? '-rotate-90' : 'rotate-90'} />
           </button>
+        </div>
+      </section>
+
+      {/* Family / Inspiration Photos */}
+      <section className="py-24 bg-forest">
+        <div className="container mx-auto px-6">
+          <SectionHeading subtitle="Foundations">Roots & Inspirations</SectionHeading>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            {[
+              foundationImg1,
+              foundationImg2,
+              foundationImg3,
+              foundationImg4,
+              foundationImg5,
+              foundationImg6
+            ].map((img, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                className={`overflow-hidden gold-border aspect-square group ${i % 3 === 0 ? 'rounded-t-3xl' : i % 3 === 2 ? 'rounded-b-3xl' : 'rounded-none'}`}
+              >
+                <img src={img} alt={`Family & Inspiration`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </motion.div>
+            ))}
+          </div>
+          <p className="mt-12 text-center text-xs font-light italic text-parchment/40 max-w-2xl mx-auto">
+            Supporting the journey across New Zealand, Australia, and Brazil.
+          </p>
         </div>
       </section>
 
