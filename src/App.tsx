@@ -22,7 +22,7 @@ import foundationImg1 from "./assets/images/regenerated_image_1778153058104.jpg"
 import foundationImg2 from "./assets/images/regenerated_image_1778153060082.jpg";
 import foundationImg3 from "./assets/images/regenerated_image_1778153061587.jpg";
 import foundationImg4 from "./assets/images/regenerated_image_1778153063003.jpg";
-import foundationImg5 from "./assets/images/regenerated_image_1778153064861.jpg";
+import foundationImg5 from "./assets/images/regenerated_image_1778205160675.jpg";
 import foundationImg6 from "./assets/images/regenerated_image_1778153066512.jpg";
 
 const Navigation = () => {
@@ -176,7 +176,7 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            <p className="uppercase tracking-[0.4em] text-gold text-xs mb-6 font-medium">Criminal Barrister & Author DeAnne Nicoloso</p>
+            <p className="uppercase tracking-[0.4em] text-gold text-xs mb-6 font-medium text-left font-mono no-underline">Criminal Barrister & Author DeAnne Nicoloso</p>
             <h1 className="font-serif mb-8 tracking-tighter" style={{ fontSize: '94px', lineHeight: '102px' }}>
               Three Little <br /> <span className="italic" style={{ fontSize: '110px' }}>Vikings</span>
             </h1>
