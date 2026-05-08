@@ -177,8 +177,8 @@ export default function App() {
             className="text-center lg:text-left"
           >
             <p className="uppercase tracking-[0.4em] text-gold text-xs mb-6 font-medium">Criminal Barrister & Author DeAnne Nicoloso</p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[0.9] tracking-tighter">
-              Three Little <br /> <span className="italic" style={{ fontSize: '100px' }}>Vikings</span>
+            <h1 className="font-serif mb-8 tracking-tighter" style={{ fontSize: '94px', lineHeight: '102px' }}>
+              Three Little <br /> <span className="italic" style={{ fontSize: '110px' }}>Vikings</span>
             </h1>
             <p className="text-parchment/70 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light" style={{ fontSize: '14px', fontFamily: 'Arial' }}>
               Justice has a price. And friendship might be the cost. <br />
@@ -190,10 +190,15 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gold text-forest px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-parchment transition-all duration-500 shadow-2xl text-center"
+                style={{ width: '330px' }}
               >
                 Buy The Book
               </a>
-              <a href="#book" className="px-10 py-4 uppercase tracking-widest text-xs font-bold border border-parchment/20 hover:border-gold transition-all duration-500 flex items-center justify-center gap-2 text-center">
+              <a 
+                href="#book" 
+                className="px-10 py-4 uppercase tracking-widest text-xs font-bold border border-parchment/20 hover:border-gold transition-all duration-500 flex items-center justify-center gap-2 text-center"
+                style={{ width: '330px' }}
+              >
                 Read The Story <ChevronRight size={14} />
               </a>
             </div>
