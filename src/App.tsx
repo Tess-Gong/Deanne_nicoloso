@@ -120,7 +120,7 @@ const Testimonials = () => {
   }, [reviews.length]);
 
   return (
-    <section id="praise" className="py-32 bg-forest relative overflow-hidden">
+    <section id="praise" className="py-32 bg-forest relative overflow-hidden" style={{ background: 'linear-gradient(to bottom, #0d1a17 0%, #173933 50%, #0d1a17 100%)' }}>
       <div className="container mx-auto px-6 text-center max-w-4xl min-h-[400px] flex flex-col justify-center">
         <Quote size={48} className="mx-auto text-gold/30 mb-12" />
         
@@ -196,7 +196,7 @@ export default function App() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden" style={{ background: 'radial-gradient(circle at top, rgba(197, 160, 89, 0.08) 0%, transparent 70%), linear-gradient(to bottom, #0e302a 0%, #04110e 100%)' }}>
+      <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden" style={{ background: 'radial-gradient(circle at top, rgba(197, 160, 89, 0.08) 0%, transparent 70%), linear-gradient(to bottom, #173933 0%, #0d1a17 100%)' }}>
         <div className="container mx-auto px-6 z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
