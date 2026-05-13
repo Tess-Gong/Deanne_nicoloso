@@ -120,7 +120,7 @@ const Testimonials = () => {
   }, [reviews.length]);
 
   return (
-    <section id="praise" className="py-32 bg-forest relative border-y border-gold/10 overflow-hidden">
+    <section id="praise" className="py-32 bg-forest relative overflow-hidden">
       <div className="container mx-auto px-6 text-center max-w-4xl min-h-[400px] flex flex-col justify-center">
         <Quote size={48} className="mx-auto text-gold/30 mb-12" />
         
@@ -196,7 +196,7 @@ export default function App() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden" style={{ background: 'radial-gradient(circle at top, rgba(197, 160, 89, 0.08) 0%, transparent 70%), linear-gradient(to bottom, #0e302a 0%, #04110e 100%)' }}>
         <div className="container mx-auto px-6 z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -218,14 +218,14 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gold text-forest px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-parchment transition-all duration-500 shadow-2xl text-center"
-                style={{ width: '330px' }}
+                style={{ width: '340px' }}
               >
                 Buy The Book
               </a>
               <a 
                 href="#book" 
                 className="px-10 py-4 uppercase tracking-widest text-xs font-bold border border-parchment/20 hover:border-gold transition-all duration-500 flex items-center justify-center gap-2 text-center"
-                style={{ width: '330px' }}
+                style={{ width: '340px' }}
               >
                 Read The Story <ChevronRight size={14} />
               </a>
@@ -303,13 +303,21 @@ export default function App() {
               <div className="absolute -inset-10 bg-gold/5 rounded-full blur-3xl" />
               <div className="grid grid-cols-2 gap-4 relative">
                 <div className="pt-12">
-                  <div className="p-1 gold-border rounded-t-full overflow-hidden">
-                    <img src={courthouseImg} alt="Courthouse Architecture" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
+                  <div className="p-1 gold-border rounded-t-full overflow-hidden" style={{ borderWidth: '2px' }}>
+                    <img 
+                      src={courthouseImg} 
+                      alt="Courthouse Architecture" 
+                      className="w-full h-full aspect-[3/4] object-cover rounded-t-full brightness-75 grayscale sepia-[0.3]" 
+                    />
                   </div>
                 </div>
                 <div>
-                  <div className="p-1 gold-border rounded-t-full overflow-hidden">
-                    <img src={dannevirkeImg} alt="Dannevirke Spirit" className="rounded-t-full brightness-75 grayscale sepia-[0.3]" />
+                  <div className="p-1 gold-border rounded-t-full overflow-hidden" style={{ borderWidth: '2px' }}>
+                    <img 
+                      src={dannevirkeImg} 
+                      alt="Dannevirke Spirit" 
+                      className="w-full h-full aspect-[3/4] object-cover rounded-t-full brightness-75 grayscale sepia-[0.3]" 
+                    />
                   </div>
                 </div>
               </div>
@@ -376,7 +384,7 @@ export default function App() {
       </section>
 
       {/* Newspaper & Magazine Mentions */}
-      <section className="py-20 bg-forest/50 border-t border-gold/10">
+      <section className="py-20 bg-forest">
         <div className="container mx-auto px-6">
           <p className="text-center uppercase tracking-[0.4em] text-[10px] mb-12 text-parchment/40">In the Headlines</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-24 opacity-40 hover:opacity-100 transition-all duration-700">
