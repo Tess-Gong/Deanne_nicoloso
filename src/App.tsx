@@ -218,14 +218,14 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gold text-forest px-10 py-4 uppercase tracking-widest text-xs font-bold hover:bg-parchment transition-all duration-500 shadow-2xl text-center"
-                style={{ width: '340px' }}
+                style={{ width: '350px' }}
               >
                 Buy The Book
               </a>
               <a 
                 href="#book" 
                 className="px-10 py-4 uppercase tracking-widest text-xs font-bold border border-parchment/20 hover:border-gold transition-all duration-500 flex items-center justify-center gap-2 text-center"
-                style={{ width: '340px' }}
+                style={{ width: '350px' }}
               >
                 Read The Story <ChevronRight size={14} />
               </a>
