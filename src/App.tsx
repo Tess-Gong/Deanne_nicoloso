@@ -23,7 +23,7 @@ import foundationImg2 from "./assets/images/regenerated_image_1778153060082.jpg"
 import foundationImg3 from "./assets/images/regenerated_image_1778153061587.jpg";
 import foundationImg4 from "./assets/images/regenerated_image_1778153063003.jpg";
 import foundationImg5 from "./assets/images/regenerated_image_1778205160675.jpg";
-import foundationImg6 from "./assets/images/regenerated_image_1778153066512.jpg";
+import foundationImg6 from "./assets/images/regenerated_image_1778153051805.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,8 +86,8 @@ const Testimonials = () => {
   const reviews = [
     {
       text: "I found the story to be incredibly rich with food for thought... narrated ideas and perspectives on justice alongside the individual emotions each character felt about the situations felt very real.",
-      author: "Anna Crimp",
-      role: "Wellington Legal Aid Services",
+      author: "Anna",
+      role: "",
       tag: "Reader Review"
     },
     {
@@ -101,6 +101,12 @@ const Testimonials = () => {
       author: "NZ Booklovers",
       role: "Literary Community",
       tag: "Recommendation"
+    },
+    {
+      text: "I was fortunate to read an early copy of this book and I was pulled in from the first couple of pages. It's such a unique and gripping mystery, that I needed to find out what had happened. The women's stories are beautifully woven into the fabric of this novel, in a journey back in time into provincial NZ life. I loved how the various strands all came together in an ending to remember. Highly recommend!",
+      author: "Reader Review",
+      role: "",
+      tag: "New Review"
     }
   ];
 
@@ -162,6 +168,28 @@ const Testimonials = () => {
 
 export default function App() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "success">("idle");
+  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
+  const [contactStatus, setContactStatus] = useState<"idle" | "success">("idle");
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    // Simulate API call
+    setNewsletterStatus("success");
+    setNewsletterEmail("");
+    setTimeout(() => setNewsletterStatus("idle"), 5000);
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contactForm.name || !contactForm.email || !contactForm.message) return;
+    // Simulate API call
+    setContactStatus("success");
+    setContactForm({ name: "", email: "", message: "" });
+    setTimeout(() => setContactStatus("idle"), 5000);
+  };
 
   return (
     <div className="min-h-screen bg-forest text-parchment selection:bg-gold selection:text-forest">
@@ -229,11 +257,11 @@ export default function App() {
       {/* Book Intro Section */}
       <section id="book" className="py-24 bg-forest relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <SectionHeading subtitle="The Narrative">Truth, Loyalty, and Shadow</SectionHeading>
+          <SectionHeading subtitle="The Narrative">Truth, Justice and Loyalty.</SectionHeading>
           
           <div className="max-w-4xl mx-auto text-center italic text-parchment/80 font-serif text-xl md:text-2xl mb-24 leading-relaxed px-4">
             <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-              "Three marriages, eight children, 53 addresses, and 20 years inside the criminal justice system. I have lived enough content to write for the rest of my days."
+              "written with the insight from raising Eight Children, living in over 50 locations, and with 25 years experience within the criminal justice system."
             </motion.p>
           </div>
 
@@ -241,7 +269,7 @@ export default function App() {
             <div className="space-y-8">
               <h3 className="font-serif text-4xl">About the Book</h3>
               <p className="text-lg font-light leading-relaxed text-parchment/70">
-                <i>Three Little Vikings</i> is contemporary fiction with a raw, semi-autobiographical heartbeat. Inspired by a career spent traversing both sides of the courtroom, DeAnne Nicoloso explores the juxtaposition of birth and death, the grind of single parenting a large tribe, and the "gray space" between vengeance and the law.
+                <i>Three Little Vikings</i> is contemporary fiction with a raw, semi-autobiographical heartbeat. Inspired by a childhood experience on one side of the court-room and a career on the other, DeAnne Nicoloso explores the juxtaposition of birth and death, the grind of single parenting a large tribe, and the "grey space" between vengeance and the law.
               </p>
               <p className="text-parchment/70 font-light leading-relaxed">
                 Jillian, Kathleen, and Hannah grow up in the provincial NZ town of Dannevirke. Reconnecting as mature women, they form <strong>Practical Justice</strong>—a vigilante group dealing exclusively with child sex offenders, offering restorative justice to those who admit their guilt, and curated acts of revenge for those who deny it.
@@ -287,7 +315,7 @@ export default function App() {
               </div>
               <div className="mt-8 text-center sm:text-left">
                  <p className="text-[10px] uppercase tracking-widest text-gold/50 italic px-4">
-                  "Although the content is at times dark and confronting, humor is used to take power from the offenders and give it back to the victims."
+                  "although the content is at times dark and confronting, creativity and humour is used to shift the power from the offenders to the victims."
                 </p>
               </div>
             </div>
@@ -320,10 +348,10 @@ export default function App() {
             
             <div className="space-y-8 order-1 lg:order-2">
               <SectionHeading subtitle="The Barrister & Artist" light>DeAnne Nicoloso</SectionHeading>
-              <p className="text-xl font-serif italic text-gold">"My fascinations lie in the truth, loyalty, and the gray space between justice and the law."</p>
+              <p className="text-xl font-serif italic text-gold">"My fascinations lie in the truth, loyalty, and the grey space between justice and the law."</p>
               <div className="space-y-4 text-parchment/70 font-light leading-relaxed">
                 <p>
-                  DeAnne Nicoloso is a criminal barrister and yoga instructor based in Queenstown, New Zealand. A mother of eight and grandmother of three, she splits her time between New Zealand, Australia, and Brazil.
+                  DeAnne Nicoloso is a criminal barrister and yoga instructor based in Queenstown, New Zealand. A mother of eight and grandmother of three, she spends her time between New Zealand, Australia, and Brazil.
                 </p>
                 <p>
                   Her passions for dance and languages—and a career spent inside courtrooms—fuel her storytelling. In <i>Three Little Vikings</i>, she dives into the complexities of buried trauma as an enigmatic Māori elder, Moana, unspools the secrets of the past.
@@ -334,7 +362,7 @@ export default function App() {
               </div>
               <div className="flex gap-12 pt-8 border-t border-gold/10">
                 <div>
-                  <h4 className="text-4xl font-serif text-parchment">20y</h4>
+                  <h4 className="text-4xl font-serif text-parchment">25y</h4>
                   <p className="uppercase tracking-widest text-gold mt-2" style={{ fontSize: '11px' }}>Legal Experience</p>
                 </div>
                 <div>
@@ -450,7 +478,7 @@ export default function App() {
       {/* Credits Section */}
       <section className="py-24 bg-forest/30 border-t border-gold/10">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <SectionHeading subtitle="Acknowledgments">Ngā mihi nui • Obrigado • Thankyou</SectionHeading>
+          <SectionHeading subtitle="Acknowledgments">Ngā mihi nui • Obrigada • Thankyou</SectionHeading>
           <div className="grid md:grid-cols-2 gap-12 text-parchment/60 font-light text-sm italic">
             <div className="space-y-6">
               <div>
@@ -510,16 +538,43 @@ export default function App() {
         <div className="container mx-auto px-6 max-w-xl text-center">
           <SectionHeading subtitle="Stay Connected">The Monthly Scroll</SectionHeading>
           <p className="text-parchment/70 mb-10 font-light italic">Join DeAnne's private newsletter for writing updates, book launch news, and exclusive short stories.</p>
-          <div className="relative group">
-            <input 
-              type="email" 
-              placeholder="Your Email Address" 
-              className="w-full bg-transparent border-b border-gold/40 py-4 px-2 focus:outline-none focus:border-gold transition-colors italic"
-            />
-            <button className="absolute right-0 bottom-4 text-gold hover:translate-x-2 transition-transform">
-              <ChevronRight size={24} />
-            </button>
-          </div>
+          
+          <AnimatePresence mode="wait">
+            {newsletterStatus === "success" ? (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="bg-gold/10 border border-gold/30 p-8 rounded-lg"
+              >
+                <p className="text-gold font-serif text-xl italic">Thank you for joining the journey.</p>
+                <p className="text-parchment/60 text-sm mt-2">You have been successfully added to The Monthly Scroll.</p>
+              </motion.div>
+            ) : (
+              <motion.form 
+                onSubmit={handleNewsletterSubmit}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative group"
+              >
+                <input 
+                  type="email" 
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Your Email Address" 
+                  required
+                  className="w-full bg-transparent border-b border-gold/40 py-4 px-2 focus:outline-none focus:border-gold transition-colors italic"
+                />
+                <button 
+                  type="submit"
+                  className="absolute right-0 bottom-4 text-gold hover:translate-x-2 transition-transform"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </motion.form>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -541,16 +596,71 @@ export default function App() {
             </div>
           </div>
           
-          <form className="space-y-6 bg-parchment/5 p-10 rounded-t-3xl border border-gold/10">
-            <div className="grid grid-cols-2 gap-6">
-              <input type="text" placeholder="Name" className="bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" />
-              <input type="email" placeholder="Email" className="bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" />
-            </div>
-            <textarea placeholder="Your Message" rows={4} className="w-full bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" />
-            <button className="w-full bg-gold text-forest py-4 uppercase tracking-widest font-bold text-xs hover:bg-parchment transition-all duration-500">
-              Send Message
-            </button>
-          </form>
+          <AnimatePresence mode="wait">
+            {contactStatus === "success" ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.05 }}
+                className="space-y-6 bg-gold/10 p-10 rounded-t-3xl border border-gold/30 flex flex-col items-center justify-center text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+                  <Mail className="text-gold" size={32} />
+                </div>
+                <h3 className="font-serif text-3xl text-gold">Message Sent</h3>
+                <p className="text-parchment/70 font-light leading-relaxed">
+                  Thank you for reaching out. DeAnne will review your message and respond as soon as possible.
+                </p>
+                <button 
+                  onClick={() => setContactStatus("idle")}
+                  className="mt-6 text-gold uppercase tracking-widest text-xs font-bold border-b border-gold/40 hover:border-gold transition-all"
+                >
+                  Send another message
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form 
+                onSubmit={handleContactSubmit}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="space-y-6 bg-parchment/5 p-10 rounded-t-3xl border border-gold/10"
+              >
+                <div className="grid grid-cols-2 gap-6">
+                  <input 
+                    type="text" 
+                    placeholder="Name" 
+                    required
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                    className="bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" 
+                  />
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    required
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                    className="bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" 
+                  />
+                </div>
+                <textarea 
+                  placeholder="Your Message" 
+                  rows={4} 
+                  required
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  className="w-full bg-transparent border-b border-gold/20 py-3 focus:outline-none focus:border-gold transition-all" 
+                />
+                <button 
+                  type="submit"
+                  className="w-full bg-gold text-forest py-4 uppercase tracking-widest font-bold text-xs hover:bg-parchment transition-all duration-500"
+                >
+                  Send Message
+                </button>
+              </motion.form>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
